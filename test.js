@@ -16,26 +16,21 @@ function validEmail(email) {
         return "Invalid";
     }
     const specialChars = ".-+_@";
-    
     if (email.includes(" ")) {
         return false;
     }
-
     if (specialChars.includes(email[0])) {
         return false;
     }
-    
     const atIndex = email.indexOf("@");
     if (atIndex <= 0 || atIndex >= email.length - 1) {
         return false;
     }
-
     if (!email.endsWith(".com")) {
         return false;
     }
     return true;
 }
-
 
 
 
@@ -66,9 +61,26 @@ function electionResult(votes){
 
 
 
-function isBestFriend(f1,f2){
+function isBestFriend(f1, f2) {
+    if (
+      typeof f1 === "object" &&
+      typeof f2 === "object" &&
+      f1 !== null &&
+      f2 !== null &&
+      !Array.isArray(f1) &&
+      !Array.isArray(f2)
+    ) {
+      if (f1.roll === f2.bestFriend && f2.roll === f1.bestFriend) {
+        return true;
+      } else {
+        return false;
+      }
+    } else {
+      return "Invalid";
+    }
+  }
 
-}
+
 
 
 
